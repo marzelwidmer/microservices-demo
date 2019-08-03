@@ -56,6 +56,10 @@
 
 		<!-- Kotlin -->
 		<dependency>
+			<groupId>io.projectreactor.kotlin</groupId>
+			<artifactId>reactor-kotlin-extensions</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
 			<artifactId>jackson-module-kotlin</artifactId>
 		</dependency>
