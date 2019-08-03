@@ -12,8 +12,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>catalog-service</module>
-        <module>information-service</module>
-        <module>rating-service</module>
+        <module>movie-catalog-service</module>
+        <module>movie-info-service</module>
+        <module>movie-rating-service</module>
     </modules>
 </project>
