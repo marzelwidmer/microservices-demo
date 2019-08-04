@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.kotlin.core.publisher.toFlux
 import java.util.*
+import java.util.logging.Logger
 import javax.annotation.PostConstruct
 
 @SpringBootApplication
@@ -23,7 +24,7 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-@RequestMapping(value = ["/api"])
+@RequestMapping(value = ["/api/movies"])
 class MovieCatalogResource(private val service: CatalogService) {
 
     @GetMapping(value = ["/catalog/{userId}"])
@@ -42,6 +43,8 @@ class CatalogService(private val repository: CatalogRepository) {
 @Component
 class DataLoader(private val repository: CatalogRepository) {
 
+    val log: Logger = Logger.getLogger(DataLoader::class.java.name)!!
+
     @PostConstruct
     fun load() =
             repository.deleteAll()
@@ -56,7 +59,7 @@ class DataLoader(private val repository: CatalogRepository) {
                                     .map { CatalogItem(name = it.name, desc = it.desc, rating = it.rating) }
                                     .flatMap { repository.save(it) }
                                     .thenMany(repository.findAll())
-                    ).subscribe { print(it) }
+                    ).subscribe { log.info("$it") }
 }
 
 interface CatalogRepository : ReactiveCrudRepository<CatalogItem, String>
