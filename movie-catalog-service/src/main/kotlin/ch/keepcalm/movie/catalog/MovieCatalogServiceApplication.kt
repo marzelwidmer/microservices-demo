@@ -1,9 +1,8 @@
 package ch.keepcalm.movie.catalog
 
+import ch.keepcalm.movie.catalog.model.CatalogItem
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.kotlin.core.publisher.toFlux
-import java.util.*
 import java.util.logging.Logger
 import javax.annotation.PostConstruct
 
@@ -27,6 +25,9 @@ fun main(args: Array<String>) {
 @RequestMapping(value = ["/api/movies"])
 class MovieCatalogResource(private val service: CatalogService) {
 
+    // TODO [marcelwidmer-2019-08-04]: get all related movies IDs
+    // TODO [marcelwidmer-2019-08-04]: for each movie ID, call movie-info-service and get details
+    // TODO [marcelwidmer-2019-08-04]: put them all together
     @GetMapping(value = ["/catalog/{userId}"])
     fun getMovieCatalog(@PathVariable userId: String) = service.getMovieCatalog(userId)
 
@@ -34,10 +35,7 @@ class MovieCatalogResource(private val service: CatalogService) {
 
 @Service
 class CatalogService(private val repository: CatalogRepository) {
-
-    // TODO [marcelwidmer-2019-08-04]: Implement userId...
     fun getMovieCatalog(userId: String) = repository.findAll()
-
 }
 
 @Component
@@ -64,5 +62,3 @@ class DataLoader(private val repository: CatalogRepository) {
 
 interface CatalogRepository : ReactiveCrudRepository<CatalogItem, String>
 
-@Document
-data class CatalogItem(@Id val id: String = UUID.randomUUID().toString(), val name: String, val desc: String, val rating: Double = 0.0)

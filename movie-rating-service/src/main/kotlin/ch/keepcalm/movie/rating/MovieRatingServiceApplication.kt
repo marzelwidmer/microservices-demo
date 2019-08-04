@@ -1,9 +1,8 @@
 package ch.keepcalm.movie.rating
 
+import ch.keepcalm.movie.rating.model.Rating
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
 import reactor.kotlin.core.publisher.toFlux
-import java.util.*
 import java.util.logging.Logger
 import javax.annotation.PostConstruct
 
@@ -62,5 +60,3 @@ interface RatingRepository : ReactiveCrudRepository<Rating, String> {
     fun findAllById(movieId: String): Flux<Rating>
 }
 
-@Document
-data class Rating(@Id val id: String = UUID.randomUUID().toString(), val rating: Double = 0.0)
