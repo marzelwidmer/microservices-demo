@@ -34,6 +34,7 @@ class MovieCatalogResource(private val service: CatalogService) {
 @Service
 class CatalogService(private val repository: CatalogRepository) {
 
+    // TODO [marcelwidmer-2019-08-04]: Implement userId...
     fun getMovieCatalog(userId: String) = repository.findAll()
 
 }
