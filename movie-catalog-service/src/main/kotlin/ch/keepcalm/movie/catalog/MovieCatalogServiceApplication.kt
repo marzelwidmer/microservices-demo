@@ -61,4 +61,3 @@ class DataLoader(private val repository: CatalogRepository) {
                             .thenMany(repository.findAll())
             ).subscribe { print(it) }
 }
-

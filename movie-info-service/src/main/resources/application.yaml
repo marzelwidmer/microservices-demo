@@ -2,7 +2,7 @@ spring.application.name: movie-info-service
 
 # Server
 server:
-  port: 8083
+  port: 8082
 
 # Management
 management:
