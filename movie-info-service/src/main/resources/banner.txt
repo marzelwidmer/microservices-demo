@@ -5,5 +5,5 @@ ${AnsiColor.GREEN}  | |\/| |/ _ \ \ / / |/ _ \| || '_ \| |_ / _ \___ \ / _ \ '__
 ${AnsiColor.GREEN}  | |  | | (_) \ V /| |  __/| || | | |  _| (_) |__) |  __/ |   \ V /| | (__  __/
 ${AnsiColor.GREEN}  |_|  |_|\___/ \_/ |_|\___|___|_| |_|_|  \___/____/ \___|_|    \_/ |_|\___\___|
 ${AnsiColor.GREEN}
-${AnsiColor.BRIGHT_GREEN}:: ${spring.application.name}:${application.formatted-version} :: Running Spring Boot:${spring-boot.formatted-version} :: Active Profiles: ${spring.profiles.active:${spring.profiles.default:default}} ::
+${AnsiColor.BRIGHT_GREEN}:: ${spring.application.name}:${application.formatted-version} :: Running Spring Boot:${spring-boot.formatted-version} :: Active Profiles: ${spring.profiles.active:${spring.profiles.default:default}} :: Port: ${server.port}
 
