@@ -1,18 +1,26 @@
 package ch.keepcalm.movie.catalog
 
 import ch.keepcalm.movie.catalog.model.CatalogItem
+import ch.keepcalm.movie.catalog.model.Rating
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
+import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.reactive.function.client.WebClient
+import reactor.core.publisher.Flux
 import reactor.kotlin.core.publisher.toFlux
 import java.util.logging.Logger
 import javax.annotation.PostConstruct
+import reactor.core.publisher.Mono
+
+
 
 @SpringBootApplication
 class MovieCatalogServiceApplication
@@ -23,7 +31,7 @@ fun main(args: Array<String>) {
 
 @RestController
 @RequestMapping(value = ["/api/movies"])
-class MovieCatalogResource(private val service: CatalogService) {
+class MovieCatalogResource(private val service: CatalogService, private val webClientBuilder: WebClient.Builder) {
 
     // TODO [marcelwidmer-2019-08-04]: get all related movies IDs
     // TODO [marcelwidmer-2019-08-04]: for each movie ID, call movie-info-service and get details
@@ -31,11 +39,29 @@ class MovieCatalogResource(private val service: CatalogService) {
     @GetMapping(value = ["/catalog/{userId}"])
     fun getMovieCatalog(@PathVariable userId: String) = service.getMovieCatalog(userId)
 
+
+    @GetMapping(value = ["/catalog/{userId}/{id}"])
+    fun someRestCall(@PathVariable userId: String, @PathVariable id: String): Flux<Rating> {
+        return this.webClientBuilder.baseUrl("http://localhost:8083/api/movies/ratings").build()
+                .get().uri("/{id}", id)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve().bodyToFlux(Rating::class.java)
+                .log()
+    }
+
 }
 
 @Service
 class CatalogService(private val repository: CatalogRepository) {
     fun getMovieCatalog(userId: String) = repository.findAll()
+}
+
+@Component
+class Configuration {
+
+    @Bean
+    fun webClientBuilder() = WebClient.builder()
+
 }
 
 @Component
