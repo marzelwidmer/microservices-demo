@@ -38,7 +38,7 @@ class MovieCatalogResource(private val service: CatalogService) {
     fun getMovieCatalog(@PathVariable userId: String, @PathVariable id: String) = service.getMovieCatalog(userId = userId, id = id)
 
     @GetMapping(value = ["/hello"])
-    fun hello() = "Hello.."
+    fun hello() = "Hello !"
 }
 
 @Service
