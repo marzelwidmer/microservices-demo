@@ -8,8 +8,7 @@ Deploy with s2i `fabric8`
 ```
 oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
         --context-dir=movie-catalog-service \
-        --name=movie-catalog-service \
-         -n dev
+        --name=movie-catalog-service
 ```
 Update BuildConfig with Secret from MongoDB
 ```
