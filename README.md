@@ -38,7 +38,7 @@ This will output a webhook GitHub URL that looks like:
 https://console.c3smonkey.ch:8443/apis/build.openshift.io/v1/namespaces/development/buildconfigs/movie-catalog-service/webhooks/<secret>/github
 ```
 Cut and paste this URL into GitHub, from the GitHub web console.
-In your GitHub repository, select Add Webhook from Settings → Webhooks & Services.
+In your GitHub repository, select Add Webhook from Settings → Webhooks.
 Paste the URL output (similar to above) into the Payload URL field.
 
 
