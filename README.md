@@ -66,7 +66,7 @@ Update BuildConfig with Secret from MongoDB and Expose Service
 ```
 oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_ 
 oc expose svc/movie-info-service
-oc get route movie-catalog-service
+oc get route movie-info-service
 ```
 
 See build logs
@@ -83,6 +83,20 @@ Start Build with CLI
 ```
 oc start-build movie-info-service
 oc logs -f bc/movie-info-service    
+```
+
+
+
+
+## rating-service
+```
+oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
+        --context-dir=movie-rating-service \
+        --name=movie-rating-service
+```
+Update BuildConfig with Secret from MongoDB and Expose Service
+```
+oc set env bc/movie-rating-service --from="secret/mongodb" --prefix=MONGO_ ; oc expose svc/movie-rating-service; oc get route movie-rating-service
 ```
 
 
