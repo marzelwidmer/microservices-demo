@@ -1,8 +1,16 @@
-spring.application.name: movie-info-service
+spring:
+  application:
+    name: movie-info-service
+
+  data:
+    mongodb:
+      username: ${MONGO_DATABASE_USER}
+      password: ${MONGO_DATABASE_PASSWORD}
+      database: ${MONGO_DATABASE_NAME}
 
 # Server
 server:
-  port: 8082
+  port: 8080
 
 # Management
 management:

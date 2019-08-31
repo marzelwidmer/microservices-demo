@@ -4,7 +4,8 @@ oc new-project dev  --display-name="Development"
 ```
 
 
-Deploy with s2i `fabric8`
+# Deploy with s2i `fabric8`
+## catalog-service
 ```
 oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
         --context-dir=movie-catalog-service \
@@ -26,6 +27,24 @@ oc logs -f bc/movie-catalog-service
 
 
 
+## info-service
+```
+oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
+        --context-dir=movie-info-service \
+        --name=movie-info-service
+```
+Update BuildConfig with Secret from MongoDB and Expose Service
+```
+oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_; expose svc/movie-info-service; oc get route movie-catalog-service
+```
+
+See build logs
+```
+oc logs -f bc/movie-info-service
+```
+
+
+
 # Webhooks
 After creating a BuildConfig` from a GitHub repository, run:
 
@@ -40,6 +59,13 @@ https://console.c3smonkey.ch:8443/apis/build.openshift.io/v1/namespaces/developm
 Cut and paste this URL into GitHub, from the GitHub web console.
 In your GitHub repository, select Add Webhook from Settings → Webhooks.
 Paste the URL output (similar to above) into the Payload URL field.
+
+Hint: `SSL Disable (not recommended)` if your cluster don't have a valid SSL certificate.
+```
+SSL verification
+ By default, we verify SSL certificates when delivering payloads.
+```
+  
 
 
 
