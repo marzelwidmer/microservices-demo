@@ -35,7 +35,7 @@ oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.g
 ```
 Update BuildConfig with Secret from MongoDB and Expose Service
 ```
-oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_; expose svc/movie-info-service; oc get route movie-catalog-service
+oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_; oc expose svc/movie-info-service; oc get route movie-catalog-service
 ```
 
 See build logs
