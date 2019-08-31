@@ -46,7 +46,7 @@ class CatalogService(private val repository: CatalogRepository, private val webC
     fun getMovieCatalog(userId: String, id: String) = getRatings(userId = userId, id = id)//repository.findAll()
 
     fun getRatings(@PathVariable userId: String, @PathVariable id: String): Flux<Rating> {
-        return this.webClientBuilder.baseUrl("http://movie-info-service/api/movies/ratings").build()
+        return this.webClientBuilder.baseUrl("http://movie-info-service:8080/api/movies/ratings").build()
                 .get().uri("/{id}", id)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve().bodyToFlux(Rating::class.java)

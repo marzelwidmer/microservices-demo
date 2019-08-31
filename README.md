@@ -25,27 +25,13 @@ See build logs
 oc logs -f bc/movie-catalog-service
 ```
 
-
-
-## info-service
-```
-oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
-        --context-dir=movie-info-service \
-        --name=movie-info-service
-```
-Update BuildConfig with Secret from MongoDB and Expose Service
-```
-oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_; oc expose svc/movie-info-service; oc get route movie-catalog-service
-```
-
-See build logs
-```
-oc logs -f bc/movie-info-service
+Get BuildConfig as YAML 
+``` 
+oc get bc/movie-catalog-service -o yaml
 ```
 
 
-
-# Webhooks
+## Webhooks
 After creating a BuildConfig` from a GitHub repository, run:
 
 ```
@@ -68,6 +54,36 @@ SSL verification
   
 
 
+
+
+## info-service
+```
+oc new-app fabric8/s2i-java~https://github.com/marzelwidmer/microservices-demo.git#master \
+        --context-dir=movie-info-service \
+        --name=movie-info-service
+```
+Update BuildConfig with Secret from MongoDB and Expose Service
+```
+oc set env bc/movie-info-service --from="secret/mongodb" --prefix=MONGO_ 
+oc expose svc/movie-info-service
+oc get route movie-catalog-service
+```
+
+See build logs
+```
+oc logs -f bc/movie-info-service
+```
+
+Get BuildConfig as YAML 
+``` 
+oc get bc/movie-info-service -o yaml
+```
+
+Start Build with CLI
+```
+oc start-build movie-info-service
+oc logs -f bc/movie-info-service    
+```
 
 
  
