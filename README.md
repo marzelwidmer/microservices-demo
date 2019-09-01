@@ -104,7 +104,7 @@ SSL verification
 
 ![Add GitHub WebHook](/Add-GitHub-WebHook.png)
 
-> **_Note:**  This is a cheap Delivery  Pipeline . We have a multi Maven project so we create for every service a WebHook.
+> **_Note:_**  This is a cheap Delivery  Pipeline . We have a multi Maven project so we create for every service a WebHook.
 
 
 ![GitHub WebHooks](/GitHub-WebHooks.png)
