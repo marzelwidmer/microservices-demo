@@ -1,8 +1,7 @@
-Create Project
+# Create Project
 ```
 oc new-project dev  --display-name="Development"
 ```
-
 
 # Deploy with s2i `fabric8`
 ## catalog-service
@@ -71,9 +70,6 @@ Update BuildConfig with Secret from MongoDB and Expose Service
 oc set env bc/movie-rating-service --from="secret/mongodb" --prefix=MONGO_ ; oc expose svc/movie-rating-service; oc get route movie-rating-service
 ```
 
-
-
-
 ## WebHooks
 After creating a `BuildConfig` from a GitHub repository, run:
 ```
@@ -106,15 +102,14 @@ SSL verification
  By default, we verify SSL certificates when delivering payloads.
 ```
 
-![Add GitHub WebHook](/Add-GitHub-WebHook.png)
+![Add GitHub WebHook](/img/Add-GitHub-WebHook.png)
 
 > **_Note:**  This is a cheap Delivery  Pipeline . We have a multi Maven project so we create for every service a WebHook.
 
 
-![GitHub WebHooks](/GitHub-WebHooks.png)
+![GitHub WebHooks](/img/GitHub-WebHooks.png)
 
+Now when we push something on the all projects will be build and deployed on Openshift.
 
+![GitHub WebHooks](/img/Builds.png)
 
-
-
- 
