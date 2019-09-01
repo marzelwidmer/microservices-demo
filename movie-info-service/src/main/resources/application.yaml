@@ -21,11 +21,11 @@ management:
       show-details: ALWAYS
 
 # Jager
-opentracing:
-  jaeger:
-    enabled: false
-    probabilistic-sampler:
-      sampling-rate: 1.0
+#opentracing:
+#  jaeger:
+#    enabled: false
+#    probabilistic-sampler:
+#      sampling-rate: 1.0
 
 
 # Logging

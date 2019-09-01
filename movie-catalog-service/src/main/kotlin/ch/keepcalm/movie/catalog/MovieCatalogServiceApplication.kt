@@ -3,7 +3,6 @@ package ch.keepcalm.movie.catalog
 import ch.keepcalm.movie.catalog.model.CatalogItem
 import ch.keepcalm.movie.catalog.model.Rating
 import io.jaegertracing.Configuration
-import io.jaegertracing.internal.samplers.ProbabilisticSampler
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
@@ -60,8 +59,8 @@ class Configurationx {
     @Bean
     fun webClientBuilder() = WebClient.builder()
 
-//    @Bean
-//    fun jaegerTracer()  = Configuration("movie-catalog-service").tracer
+    @Bean
+    fun jaegerTracer()  = Configuration("movie-catalog-service").tracer
 
 }
 

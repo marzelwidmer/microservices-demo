@@ -59,11 +59,6 @@
 		</dependency>
 		<!-- OpenTracing Spring Cloud -->
 		<dependency>
-			<groupId>io.opentracing.contrib</groupId>
-			<artifactId>opentracing-spring-cloud-starter</artifactId>
-			<version>0.3.4</version>
-		</dependency>
-		<dependency>
 			<groupId>io.jaegertracing</groupId>
 			<artifactId>jaeger-client</artifactId>
 			<version>0.35.2</version>
