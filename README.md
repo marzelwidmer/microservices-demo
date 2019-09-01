@@ -109,7 +109,7 @@ SSL verification
 
 ![GitHub WebHooks](/img/GitHub-WebHooks.png)
 
-Now when we push something on the all projects will be build and deployed on Openshift.
+Now when we will push all projects will be build and deployed on Openshift.
 
 ![GitHub WebHooks](/img/Builds.png)
 
