@@ -26,6 +26,10 @@ opentracing:
     enabled: false
     probabilistic-sampler:
       sampling-rate: 1.0
+    const-sampler:
+      decision: true
+#    http-sender:
+#      url: http://jaeger-collector:14268/api/traces
 
 # Logging
 logging:
