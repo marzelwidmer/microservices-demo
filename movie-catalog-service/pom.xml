@@ -55,6 +55,7 @@ https://github.com/opentracing-contrib/java-spring-cloud
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- OpenTracing Spring Cloud -->
