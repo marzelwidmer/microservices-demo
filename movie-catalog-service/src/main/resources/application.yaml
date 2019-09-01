@@ -8,10 +8,6 @@ spring:
       password: ${MONGO_DATABASE_PASSWORD}
       database: ${MONGO_DATABASE_NAME}
 
-  sleuth:
-    sampler:
-      percentage: 1.0
-
 # Server
 server:
   port: 8080
