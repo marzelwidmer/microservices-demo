@@ -1,8 +1,10 @@
 package ch.keepcalm.movie.info
 
 import ch.keepcalm.movie.info.model.Movie
+import io.jaegertracing.Configuration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Flux
 import reactor.kotlin.core.publisher.toFlux
 import java.util.logging.Logger
@@ -33,6 +36,15 @@ class MovieResource(private val service: MovieService) {
 @Service
 class MovieService(private val repository: MovieRepository) {
     fun getAllMoviesById(movieId: String) = repository.findAllById(movieId)
+}
+
+
+@Component
+class Configuration {
+
+    @Bean
+    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-info-service").tracer
+
 }
 
 @Component

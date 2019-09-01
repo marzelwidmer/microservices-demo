@@ -20,8 +20,10 @@ management:
     health:
       show-details: ALWAYS
 
+
 # Jager
-#opentracing.jaeger.probabilistic-sampler.sampling-rate: 1.0
+opentracing.jaeger.probabilistic-sampler.sampling-rate: 1.0
+
 
 # Logging
 logging:

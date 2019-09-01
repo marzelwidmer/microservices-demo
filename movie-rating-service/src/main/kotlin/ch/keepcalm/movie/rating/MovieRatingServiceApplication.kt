@@ -1,8 +1,10 @@
 package ch.keepcalm.movie.rating
 
 import ch.keepcalm.movie.rating.model.Rating
+import io.jaegertracing.Configuration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
@@ -33,6 +35,14 @@ class RatingResource(private val service: RatingService) {
 @Service
 class RatingService(private val repository: RatingRepository) {
     fun getAllRatingsByeId(movieId: String) = repository.findAllById(movieId)
+}
+
+@Component
+class Configuration {
+
+    @Bean
+    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-rating-service").tracer
+
 }
 
 @Component
