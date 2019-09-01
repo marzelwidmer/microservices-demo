@@ -113,3 +113,50 @@ Now when we will push all projects will be build and deployed on Openshift.
 
 ![GitHub WebHooks](/Builds.png)
 
+
+
+# Test API
+## catalog-service
+### Request :
+```
+http http://movie-catalog-service-development.apps.c3smonkey.ch/api/movies/catalog/foo/0000-0000-0000-0000-0001                                                                     1739ms  Sun Sep  1 12:04:48 2019
+```
+### Response :
+```json
+[
+    {
+        "id": "0000-0000-0000-0000-0001",
+        "rating": 7.2
+    }
+]
+```
+## info-service
+### Request :
+```
+http http://movie-info-service-development.apps.c3smonkey.ch/api/movies/info/0000-0000-0000-0000-0001
+```
+### Response :
+```json
+[
+    {
+        "desc": "Lawman Luke Hobbs and outcast Deckard Shaw form an unlikely alliance when a cyber-genetically enhanced villain threatens the future of humanity.",
+        "id": "0000-0000-0000-0000-0001",
+        "name": "Fast & Furious Presents: Hobbs & Shaw"
+    }
+]
+```
+
+## rating-service
+### Request :
+```
+http  http://movie-rating-service-development.apps.c3smonkey.ch/api/movies/ratings/0000-0000-0000-0000-0001
+```
+### Response :
+```json
+[
+    {
+        "id": "0000-0000-0000-0000-0001",
+        "rating": 7.2
+    }
+]
+```
