@@ -42,8 +42,8 @@ class MovieService(private val repository: MovieRepository) {
 @Component
 class Configuration {
 
-    @Bean
-    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-info-service").tracer
+//    @Bean
+//    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-info-service").tracer
 
 }
 

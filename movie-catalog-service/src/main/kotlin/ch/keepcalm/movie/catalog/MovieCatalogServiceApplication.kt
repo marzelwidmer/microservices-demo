@@ -60,8 +60,8 @@ class Configuration {
     @Bean
     fun webClientBuilder() = WebClient.builder()
 
-    @Bean
-    fun jaegerTracer()  = Configuration("movie-catalog-service").tracer
+//    @Bean
+//    fun jaegerTracer()  = Configuration("movie-catalog-service").tracer
 
 }
 

@@ -40,8 +40,8 @@ class RatingService(private val repository: RatingRepository) {
 @Component
 class Configuration {
 
-    @Bean
-    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-rating-service").tracer
+//    @Bean
+//    fun jaegerTracer() : io.opentracing.Tracer = Configuration("movie-rating-service").tracer
 
 }
 
