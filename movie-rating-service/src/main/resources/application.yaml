@@ -24,6 +24,7 @@ management:
 # Jager
 opentracing:
   jaeger:
+    enabled: false
     probabilistic-sampler:
       sampling-rate: 1.0
 
