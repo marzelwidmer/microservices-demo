@@ -65,10 +65,16 @@ https://github.com/opentracing-contrib/java-spring-cloud
 			<version>0.3.4</version>
 		</dependency>
 		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-jaeger-cloud-starter</artifactId>
+			<version>0.3.4</version>
+		</dependency>
+		<dependency>
 			<groupId>io.jaegertracing</groupId>
 			<artifactId>jaeger-client</artifactId>
 			<version>0.35.2</version>
 		</dependency>
+
 
 		<!-- Kotlin -->
 		<dependency>

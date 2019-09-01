@@ -55,7 +55,7 @@ class CatalogService(private val repository: CatalogRepository, private val webC
 }
 
 @Component
-class Configuration {
+class Configurationx {
 
     @Bean
     fun webClientBuilder() = WebClient.builder()
