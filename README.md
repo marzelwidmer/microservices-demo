@@ -102,14 +102,14 @@ SSL verification
  By default, we verify SSL certificates when delivering payloads.
 ```
 
-![Add GitHub WebHook](/img/Add-GitHub-WebHook.png)
+![Add GitHub WebHook](/Add-GitHub-WebHook.png)
 
 > **_Note:**  This is a cheap Delivery  Pipeline . We have a multi Maven project so we create for every service a WebHook.
 
 
-![GitHub WebHooks](/img/GitHub-WebHooks.png)
+![GitHub WebHooks](/GitHub-WebHooks.png)
 
 Now when we will push all projects will be build and deployed on Openshift.
 
-![GitHub WebHooks](/img/Builds.png)
+![GitHub WebHooks](/Builds.png)
 

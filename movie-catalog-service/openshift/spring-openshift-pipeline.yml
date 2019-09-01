@@ -6,13 +6,13 @@ items:
   kind: BuildConfig
   metadata:
     annotations:
-      pipeline.alpha.openshift.io/uses: '[{"name": "spring-openshift", "namespace": "", "kind": "DeploymentConfig"}]'
-    name: spring-openshift-pipeline
+      pipeline.alpha.openshift.io/uses: '[{"name": "movie-catalog-pipeline", "namespace": "", "kind": "DeploymentConfig"}]'
+    name: movie-catalog-pipeline
   spec:
     source:
       git:
-        ref: pipeline
-        uri: https://github.com/marzelwidmer/spring-openshift.git
+        ref: movie-catalog-service
+        uri: https://github.com/marzelwidmer/microservices-demo.git#master
       type: Git
     strategy:
       type: JenkinsPipeline
