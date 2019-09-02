@@ -8,10 +8,6 @@ spring:
       password: ${MONGO_DATABASE_PASSWORD}
       database: ${MONGO_DATABASE_NAME}
 
-#      database: mymongo_db
-#      port: 27017
-#      host: localhost
-
 # Server
 server:
   port: 8080
@@ -23,22 +19,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-
-
-# Jager
-opentracing:
-  jaeger:
-    service-name: foo
-#opentracing:
-#  jaeger:
-#    service-name: catalog-service
-#    enabled: true
-#    probabilistic-sampler:
-#      sampling-rate: 1.0
-#    const-sampler:
-#      decision: true
-#    http-sender:
-#      url: http://jaeger-collector:14268/api/traces
 
 # Logging
 logging:
