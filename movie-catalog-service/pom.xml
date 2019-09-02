@@ -22,7 +22,7 @@
 <!--		<spring-cloud.version>Hoxton.M2</spring-cloud.version>
 https://github.com/opentracing-contrib/java-spring-cloud
 -->
-		<spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+<!--		<spring-cloud.version>Greenwich.SR2</spring-cloud.version>-->
 	</properties>
 
 	<dependencies>
@@ -52,11 +52,11 @@ https://github.com/opentracing-contrib/java-spring-cloud
 			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
 		</dependency>
 		<!-- MongoDB Server  -->
-		<dependency>
+	<!--	<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 
 		<!-- OpenTracing Spring Cloud -->
 <!--		<dependency>-->
@@ -179,7 +179,7 @@ https://github.com/opentracing-contrib/java-spring-cloud
 		</plugins>
 	</build>
 
-	<dependencyManagement>
+	<!--<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -189,7 +189,7 @@ https://github.com/opentracing-contrib/java-spring-cloud
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
+	</dependencyManagement>-->
 
 	<repositories>
 		<repository>
