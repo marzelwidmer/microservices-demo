@@ -5,3 +5,6 @@ Spring Boot Microservices
 ```
 git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 ```
+
+Example application for distributed tracing with OpenTracing and Jaeger post.
+
