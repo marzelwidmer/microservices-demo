@@ -1,0 +1,3 @@
+[submodule "order-service"]
+	path = order-service
+	url = git@github.com:marzelwidmer/order-service.git
