@@ -13,6 +13,8 @@ https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-
 
 
 # oc cheatsheet
+https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md
+
 Show not Running POD's
 ```bash
 $ oc get pods --field-selector=status.phase!=Running
@@ -21,6 +23,16 @@ $ oc get pods --field-selector=status.phase!=Running
 Show only Running POD's
 ```bash
 $ oc get pods --field-selector=status.phase=Running
+```
+
+Get Secret
+```bash
+$ oc get bc/catalog-service-pipeline -n jenkins -o json | jq '.spec.triggers[].github.secret'
+```
+
+Get Route Host
+```bash
+$ oc get route/jaeger-collector -o json | jq '.spec.host'e
 ```
 
 Tail log of POD
