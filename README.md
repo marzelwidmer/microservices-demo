@@ -51,7 +51,6 @@ $ oc logs -f order-service-22-cqqn4 --tail=50
 
 
 
-
 # Jaeger
 [java-spring-jaeger](https://github.com/opentracing-contrib/java-spring-jaeger/blob/master/README.md)
 
@@ -91,6 +90,49 @@ opentracing:
 ## Jaeger UI
 [Jaeger UI](https://jaeger-query-jaeger.apps.c3smonkey.ch/search)
 
+
+
+# ConfigMap
+Apply `ConfigMap`
+```bash
+$ oc apply -f deployments/configmap.yaml
+```
+
+## Additional ConfigMap Commands
+Create `ConfigMap` from file.
+```bash
+$ oc create configmap order-service --from-file=src/main/resources/application.yaml
+```
+
+Get all `ConfigMaps`
+```bash
+$ oc get configmaps
+```
+
+Get `ConfigMap` as `yaml`
+```bash
+$ oc get configmap order-service -o yaml
+```
+
+Describe `ConfigMap`
+```bash
+$ oc describe configmap order-service
+```
+
+Delete `ConfigMap`
+```bash
+$ oc delete configmap order-service
+```
+
+# Wat running POD
+```bash
+$ watch oc get pods --field-selector=status.phase=Running                                                                         28.6m  Thu Sep 19 16:14:40 2019
+```
+
+# Tail logfile
+```bash
+$ oc logs -f order-service-37-hh2tb
+```
 
 
 
