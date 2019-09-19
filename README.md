@@ -1,19 +1,19 @@
 # microservices-demo
-Spring Boot Microservices 
+Spring Boot Microservices example application for [http://blog.marcelwidmer.org/](http://blog.marcelwidmer.org/){:target="_blank"}
 
 ## Clone all Git submodule
 ```
 git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 ```
 
-Example application for distributed tracing with OpenTracing and Jaeger post.
-
 # Changelog
-https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html
+- [Catalog-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html){:target="_blank"}
+- [Customer-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-customer-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html){:target="_blank"}
+- [Order-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html){:target="_blank"}
 
 
-# oc cheatsheet
-https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md
+# OKD cheatsheet
+[oc cli tricks](https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md){:target="_blank"}
 
 Show not Running POD's
 ```bash
@@ -41,4 +41,16 @@ $ oc logs -f order-service-22-cqqn4 --tail=50
 ```
 
 # Git cheatsheet
-https://devhints.io/git-log-format
+- [git-log-format](https://devhints.io/git-log-format){:target="_blank"}
+- [git-log](https://devhints.io/git-log){:target="_blank"}
+- [git-tricks](https://devhints.io/git-tricks){:target="_blank"}
+- [git-branch](https://devhints.io/git-branch){:target="_blank"}
+- [git-revisions](https://devhints.io/git-revisions){:target="_blank"}
+- [tig](https://devhints.io/tig){:target="_blank"}
+- [git-extras](https://devhints.io/git-extras){:target="_blank"}
+
+
+
+
+
+
