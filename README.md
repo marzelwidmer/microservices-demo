@@ -12,6 +12,11 @@ git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 - [Order-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)
 
 
+## Deploy to Development from local machine
+```bash
+$ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=development
+```
+
 # OKD cheatsheet
 [oc cli tricks](https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md)
 
@@ -124,7 +129,7 @@ Delete `ConfigMap`
 $ oc delete configmap order-service
 ```
 
-# Wat running POD
+# Watch running POD
 ```bash
 $ watch oc get pods --field-selector=status.phase=Running                                                                         28.6m  Thu Sep 19 16:14:40 2019
 ```
