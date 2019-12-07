@@ -141,5 +141,9 @@ $ oc logs -f order-service-37-hh2tb
 
 
 
-
+# Git
+## Add Submodule
+```bash
+git submodule add git@github.com:marzelwidmer/gateway.git 
+```
 
