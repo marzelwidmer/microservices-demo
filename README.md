@@ -131,7 +131,7 @@ $ oc delete configmap order-service
 
 # Watch running POD
 ```bash
-$ watch oc get pods --field-selector=status.phase=Running                                                                         28.6m  Thu Sep 19 16:14:40 2019
+$ watch oc get pods --field-selector=status.phase=Running
 ```
 
 # Tail logfile
