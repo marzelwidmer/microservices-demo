@@ -7,6 +7,3 @@
 [submodule "catalog-service"]
 	path = catalog-service
 	url = git@github.com:marzelwidmer/catalog-service.git
-[submodule "gateway"]
-	path = gateway
-	url = git@github.com:marzelwidmer/gateway.git
