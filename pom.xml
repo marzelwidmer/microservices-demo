@@ -8,7 +8,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>gateway</module>
         <module>catalog-service</module>
         <module>customer-service</module>
         <module>order-service</module>
