@@ -12,6 +12,14 @@ git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 - [Order-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)
 
 
+## OpenShift 
+### Create Project and setup Environment
+```bash
+oc new-project dev --display-name="Development Stage"
+oc apply -f deployments/service-account-for-spring-cloud-k8s-access.yaml
+oc policy add-role-to-user view system:serviceaccount:dev:default
+```
+
 ## Deploy to Development from local machine
 ```bash
 $ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=development
