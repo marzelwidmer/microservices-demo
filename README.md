@@ -20,12 +20,28 @@ oc apply -f deployments/service-account-for-spring-cloud-k8s-access.yaml
 oc policy add-role-to-user view system:serviceaccount:dev:default
 ```
 
+
+## Update RBAC policy
+```bash
+$ oc policy add-role-to-user view system:serviceaccount:dev:default
+```                      
+
+To avoid the following exception.
+```bash
+.fabric8.kubernetes.client.KubernetesClientException: 
+Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods/customer-service-35-wj25f. 
+    Message: Forbidden!Configured service account doesn't have access. 
+    Service account may have been revoked. pods "order-service-35-wj25f" is 
+        forbidden: User "system:serviceaccount:development:default" cannot get pods in the namespace "development": no RBAC policy matched.
+```
+
+
 ## Deploy to Development from local machine
 ```bash
 $ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=development
 ```
 
-# OKD cheatsheet
+# OKD cheat sheet
 [oc cli tricks](https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md)
 
 Show not Running POD's

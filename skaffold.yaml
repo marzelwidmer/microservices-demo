@@ -1,0 +1,16 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: microservices-demo
+deploy:
+  kubectl:
+    manifests:
+    - catalog-service/deployments/configmap.yaml
+    - catalog-service/deployments/service-account-for-spring-cloud-k8s-access.yaml
+    - catalog-service/jenkins/catalog-service-pipeline.yaml
+    - customer-service/deployments/configmap.yaml
+    - customer-service/deployments/service-account-for-spring-cloud-k8s-access.yaml
+    - customer-service/jenkins/customer-service-pipeline.yaml
+    - order-service/deployments/configmap.yaml
+    - order-service/deployments/service-account-for-spring-cloud-k8s-access.yaml
+    - order-service/jenkins/order-service-pipeline.yaml
