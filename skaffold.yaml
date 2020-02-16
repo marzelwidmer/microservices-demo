@@ -1,11 +1,5 @@
 apiVersion: skaffold/v2alpha3
 kind: Config
-metadata:
-  name: order-service
-
-
-
-
 profiles:
   - name: monkey
     activation:
@@ -34,6 +28,7 @@ profiles:
           - catalog-service/k8s-deployment.yaml
           - customer-service/k8s-deployment.yaml
           - order-service/k8s-deployment.yaml
+          - gateway-service/k8s-deployment.yaml
 
   - name: local
     build:
@@ -50,6 +45,9 @@ profiles:
 
         - image: order-service
           context: order-service
+          jib: {}
+        - image: gateway-service
+          context: gateway-service
           jib: {}
       local:
         push: false
