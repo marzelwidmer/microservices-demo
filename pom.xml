@@ -11,6 +11,6 @@
         <module>catalog-service</module>
         <module>customer-service</module>
         <module>order-service</module>
-        <module>spring-cloud-gateway</module>
+        <module>gateway-service</module>
     </modules>
 </project>

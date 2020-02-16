@@ -1,12 +1,15 @@
 [submodule "order-service"]
 	path = order-service
 	url = git@github.com:marzelwidmer/order-service.git
-	branch = master
+	branch = skaffold
 [submodule "customer-service"]
 	path = customer-service
 	url = git@github.com:marzelwidmer/customer-service.git
-	branch = master
+	branch = skaffold
 [submodule "catalog-service"]
 	path = catalog-service
 	url = git@github.com:marzelwidmer/catalog-service.git
-	branch = master
+	branch = skaffold
+[submodule "gateway-service"]
+	path = gateway-service
+	url = git@github.com:marzelwidmer/gateway-service.git
