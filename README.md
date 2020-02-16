@@ -40,6 +40,7 @@ Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods
 skaffold init
 ```
 
+skaffold config set --global local-cluster true #do not push images after building  
 
 
 

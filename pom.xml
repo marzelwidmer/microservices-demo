@@ -7,10 +7,12 @@
     <description>Microservices Demo Application</description>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>catalog-service</module>
         <module>customer-service</module>
         <module>order-service</module>
-        <module>gateway-service</module>
+<!--        <module>gateway-service</module>-->
     </modules>
+
 </project>
