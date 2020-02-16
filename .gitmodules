@@ -13,3 +13,4 @@
 [submodule "gateway-service"]
 	path = gateway-service
 	url = git@github.com:marzelwidmer/gateway-service.git
+	branch = skaffold
