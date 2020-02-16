@@ -35,23 +35,10 @@ Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods
         forbidden: User "system:serviceaccount:development:default" cannot get pods in the namespace "development": no RBAC policy matched.
 ```
 
-## Skaffold 
+## Skaffold Local Build 
 ```bash
-skaffold init
+skaffold build
 ```
-
-skaffold config set --global local-cluster true #do not push images after building  
-
-
-
-
-
-
-
-
-
-
-
 
 
 

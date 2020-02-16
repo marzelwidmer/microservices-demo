@@ -1,0 +1,35 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+metadata:
+  name: order-service
+build:
+  artifacts:
+    - image: catalog-service
+      context: catalog-service
+      jib: {}
+
+    - image: customer-service
+      context: customer-service
+      jib: {}
+
+    - image: order-service
+      context: order-service
+      jib: {}
+
+  local:
+      push: false
+
+#deploy:
+#  kustomize: {}
+
+#deploy:
+#  kubectl:
+#    manifests:
+#      - catalog-service/k8s/base/deployment.yaml
+#      - catalog-service/k8s/base/service.yaml
+#
+#      - customer-service/k8s/base/deployment.yaml
+#      - customer-service/k8s/base/service.yaml
+#
+#      - order-service/k8s/base/deployment.yaml
+#      - order-service/k8s/base/service.yaml
