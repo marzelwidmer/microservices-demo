@@ -10,3 +10,7 @@
 	path = catalog-service
 	url = git@github.com:marzelwidmer/catalog-service.git
 	branch = master
+[submodule "spring-cloud-gateway"]
+	path = spring-cloud-gateway
+	url = git@github.com:marzelwidmer/spring-cloud-gateway.git
+	branch = master
