@@ -15,4 +15,39 @@
 <!--        <module>gateway-service</module>-->
     </modules>
 
+
+    <properties>
+        <jib.maven-plugin-version>1.8.0</jib.maven-plugin-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Jib -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib.maven-plugin-version}</version>
+                <configuration>
+                    <from>
+                        <image>gcr.io/distroless/java</image>
+                    </from>
+                    <allowInsecureRegistries>true</allowInsecureRegistries>
+                    <container>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        <jvmFlags>
+                            <jvmFlag>-Xms512m</jvmFlag>
+                        </jvmFlags>
+                    </container>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -35,9 +35,14 @@ Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods
         forbidden: User "system:serviceaccount:development:default" cannot get pods in the namespace "development": no RBAC policy matched.
 ```
 
-## Skaffold Local Build 
+## Skaffold Build
 ```bash
-skaffold build
+skaffold build -p local
+```
+
+## Skaffold Run Pipeline
+```bash
+skaffold run -p monkey
 ```
 
 
@@ -107,16 +112,17 @@ Install Jaeger on OpenShift to collect the traces
 $ oc process -f https://raw.githubusercontent.com/jaegertracing/jaeger-openshift/master/all-in-one/jaeger-all-in-one-template.yml | oc create -f -
 ```
 
+
 ## Create Route
 Create a route to access the Jaeger collector
 ```bash
-$ oc expose service jaeger-collector --port=14268 -n jaeger
+$ oc expose service jaeger-collector --port=14268 -n dev
 ```
 
 ## Get Route Host
 Get the route address
 ```bash
-$ oc get route/jaeger-collector -n jaeger -o json | jq '.spec.host'
+$ oc get route/jaeger-collector -n dev -o json | jq '.spec.host'
 ```
 
 ## Update Spring Configuration
