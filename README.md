@@ -175,3 +175,13 @@ git submodule add git@github.com:marzelwidmer/gateway.git
 ```bash
 git submodule update --remote
 ```
+
+## Recursive checkout master 
+```bash
+git submodule foreach --recursive git checkout master
+```
+
+## Recursive Pull 
+```bash
+git submodule foreach --recursive git pull
+```
