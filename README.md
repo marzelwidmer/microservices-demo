@@ -16,7 +16,7 @@ git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 ### Create Project and setup Environment
 ```bash
 oc new-project dev --display-name="Development Stage"
-oc apply -f deployments/service-account-for-spring-cloud-k8s-access.yaml
+oc apply -f k8s/service-account-for-spring-cloud-k8s-access.yaml
 oc policy add-role-to-user view system:serviceaccount:dev:default
 ```
 
@@ -38,7 +38,7 @@ Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods
 
 ## Deploy to Development from local machine
 ```bash
-$ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=development
+$ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=dev
 ```
 
 # OKD cheat sheet
