@@ -12,15 +12,19 @@ profiles:
       artifacts:
         - image: registry.apps.c3smonkey.ch/dev/catalog-service
           jib:
-            args: ['-DskipTests' , '-Dimage=registry.apps.c3smonkey.ch/dev/catalog-service']
+            args: ['-Dimage=registry.apps.c3smonkey.ch/dev/catalog-service']
 
         - image: registry.apps.c3smonkey.ch/dev/customer-service
           jib:
-            args: ['-DskipTests' , '-Dimage=registry.apps.c3smonkey.ch/dev/customer-service']
+            args: ['-Dimage=registry.apps.c3smonkey.ch/dev/customer-service']
 
         - image: registry.apps.c3smonkey.ch/dev/order-service
           jib:
-            args: ['-DskipTests' , '-Dimage=registry.apps.c3smonkey.ch/dev/order-service']
+            args: ['-Dimage=registry.apps.c3smonkey.ch/dev/order-service']
+
+        - image: registry.apps.c3smonkey.ch/dev/gateway-service
+          jib:
+            args: ['-Dimage=registry.apps.c3smonkey.ch/dev/gateway-service']
 
     deploy:
       kubectl:
