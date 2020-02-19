@@ -59,6 +59,21 @@ oc get pods --field-selector=status.phase=Running -w -ndev
 ```
 
 
+### OSP - kustomize and Deploy with Skaffold
+Becuase of performance pull the RedHat Image to the local Docker registery 
+```bash
+docker pull registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift
+```
+
+
+```bash
+kustomize build catalog-service/k8s/overlays/osp > catalog-deployment-osp.yaml
+kustomize build customer-service/k8s/overlays/osp > customer-deployment-osp.yaml
+kustomize build order-service/k8s/overlays/osp > order-deployment-osp.yaml
+kustomize build gateway-service/k8s/overlays/osp > gateway-deployment-osp.yaml
+skaffold run -p osp
+
+```
 
 
 

@@ -56,3 +56,36 @@ profiles:
       local:
         push: false
 
+
+  - name: osp
+    activation:
+      - kubeContext: myhelsana-dev-az/osp-preprod-hel-kko-ch:443
+    build:
+      insecureRegistries:
+        - registry.apps.c3smonkey.ch
+      tagPolicy:
+        sha256: {}
+      artifacts:
+        - image: registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/catalog-service
+          jib:
+            args: ['-Djib.from.image=registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift:latest', '-Dimage=registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/catalog-service']
+
+        - image: registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/customer-service
+          jib:
+            args: ['-Djib.from.image=registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift:latest', '-Dimage=registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/customer-service']
+
+        - image: registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/order-service
+          jib:
+            args: ['-Djib.from.image=registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift:latest', '-Dimage=registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/order-service']
+
+        - image: registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-azgateway-service
+          jib:
+            args: ['-Djib.from.image=registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift:latest', '-Dimage=registry.osp-appl-preprod.hel.kko.ch/myhelsana-dev-az/gateway-service']
+
+    deploy:
+      kubectl:
+        manifests:
+          - catalog-deployment-osp.yaml
+          - customer-deployment-osp.yaml
+          - order-deployment-osp.yaml
+          - gateway-deployment-osp.yaml
