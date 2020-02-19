@@ -29,10 +29,10 @@ profiles:
     deploy:
       kubectl:
         manifests:
-          - catalog-service/k8s-deployment.yaml
-          - customer-service/k8s-deployment.yaml
-          - order-service/k8s-deployment.yaml
-          - gateway-service/k8s-deployment.yaml
+          - catalog-deployment.yaml
+          - customer-deployment.yaml
+          - order-deployment.yaml
+          - gateway-deployment.yaml
 
   - name: local
     build:

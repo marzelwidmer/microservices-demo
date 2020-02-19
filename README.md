@@ -40,11 +40,23 @@ Failure executing: GET at: https://172.30.0.1/api/v1/namespaces/development/pods
 skaffold build -p local
 ```
 
+## Kustomize  
+```bash
+kustomize build catalog-service/k8s/overlays/dev > catalog-deployment.yaml
+kustomize build customer-service/k8s/overlays/dev > customer-deployment.yaml
+kustomize build order-service/k8s/overlays/dev > order-deployment.yaml
+kustomize build gateway-service/k8s/overlays/dev > gateway-deployment.yaml
+```
+
 ## Skaffold Run Pipeline
 ```bash
 skaffold run -p monkey
 ```
 
+# Show Running Pods
+```bash
+oc get pods --field-selector=status.phase=Running -w -ndev
+```
 
 
 

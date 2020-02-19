@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
   - catalog-service/k8s/overlays/dev/
+  - customer-service/k8s/overlays/dev/
+  - order-service/k8s/overlays/dev/
+  - gateway-service/k8s/overlays/dev/
