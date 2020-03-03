@@ -6,10 +6,6 @@ Spring Boot Microservices example application for [http://blog.marcelwidmer.org/
 git clone --recursive git@github.com:marzelwidmer/microservices-demo.git
 ```
 
-# Changelog
-- [Catalog-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)
-- [Customer-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-customer-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)
-- [Order-Service Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-order-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)
 
 
 ## OpenShift 
@@ -50,6 +46,7 @@ kustomize build gateway-service/k8s/overlays/dev > gateway-deployment.yaml
 
 ## Skaffold Run Pipeline
 ```bash
+docker login -u developer -p `oc whoami -t` registry.apps.c3smonkey.ch
 skaffold run -p monkey
 ```
 
@@ -59,33 +56,10 @@ oc get pods --field-selector=status.phase=Running -w -ndev
 ```
 
 
-### OSP - kustomize and Deploy with Skaffold
-Becuase of performance pull the RedHat Image to the local Docker registery 
-```bash
-docker pull registry.osp-appl-preprod.hel.kko.ch/myhelsana-build-dz/openjdk18-openshift
-```
-
-
-```bash
-kustomize build catalog-service/k8s/overlays/osp > catalog-deployment-osp.yaml
-kustomize build customer-service/k8s/overlays/osp > customer-deployment-osp.yaml
-kustomize build order-service/k8s/overlays/osp > order-deployment-osp.yaml
-kustomize build gateway-service/k8s/overlays/osp > gateway-deployment-osp.yaml
-skaffold run -p osp
-
-```
 
 
 
-
-
-
-
-## Deploy to Development from local machine
-```bash
-$ ./mvnw clean fabric8:deploy -pl catalog-service,customer-service,order-service -Dfabric8.namespace=dev
-```
-
+ 
 # OKD cheat sheet
 [oc cli tricks](https://gist.github.com/tuxfight3r/79bddbf4af9b6d13d590670c40fec3e0#file-openshift_cli_tricks-md)
 
