@@ -205,3 +205,6 @@ git submodule foreach --recursive git checkout master
 ```bash
 git submodule foreach --recursive git pull
 ```
+
+## Spring CLI
+https://cloud.spring.io/spring-cloud-cli/1.0.x/
